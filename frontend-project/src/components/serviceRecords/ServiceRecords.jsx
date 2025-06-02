@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -184,19 +185,19 @@ const ServiceRecords = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-800"></div>
+      <div className="flex justify-center items-center h-64 bg-[#fdeca6]">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#ff7ff2]"></div>
       </div>
     );
   }
 
   return (
-    <div className="py-6">
-      <h1 className="text-2xl font-bold text-gray-900 mb-6">Service Records Management</h1>
+    <div className="py-6 bg-[#fdeca6]">
+      <h1 className="text-2xl font-bold text-gray-800 mb-6">Service Records Management</h1>
 
       {/* Add/Edit Service Record Form */}
-      <div className="bg-white rounded-lg shadow-md p-6 mb-8 border border-gray-100">
-        <h2 className="text-xl font-semibold text-gray-900 mb-4">
+      <div className="bg-[#fdeca6] rounded-lg shadow-md p-6 mb-8 border border-[#ff7ff2]">
+        <h2 className="text-xl font-semibold text-gray-800 mb-4">
           {editMode ? 'Edit Service Record' : 'Add New Service Record'}
         </h2>
 
@@ -207,7 +208,7 @@ const ServiceRecords = () => {
         )}
 
         {success && (
-          <div className="bg-green-100 border border-green-800 text-gray-800 px-4 py-3 rounded mb-4">
+          <div className="bg-[#fdeca6] border border-[#ff7ff2] text-gray-800 px-4 py-3 rounded mb-4">
             {success}
           </div>
         )}
@@ -223,7 +224,7 @@ const ServiceRecords = () => {
                 name="plateNumber"
                 value={plateNumber}
                 onChange={onChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-800 focus:border-green-800"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff7ff2] focus:border-[#ff7ff2]"
               >
                 <option value="">Select a car</option>
                 {cars.map((car) => (
@@ -243,7 +244,7 @@ const ServiceRecords = () => {
                 name="serviceCode"
                 value={serviceCode}
                 onChange={onChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-800 focus:border-green-800"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff7ff2] focus:border-[#ff7ff2]"
               >
                 <option value="">Select a service</option>
                 {services.map((service) => (
@@ -264,7 +265,7 @@ const ServiceRecords = () => {
                 name="amountPaid"
                 value={amountPaid}
                 onChange={onChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-800 focus:border-green-800"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff7ff2] focus:border-[#ff7ff2]"
                 placeholder="e.g. 150000"
               />
             </div>
@@ -273,7 +274,7 @@ const ServiceRecords = () => {
           <div className="mt-2 flex space-x-2">
             <button
               type="submit"
-              className="bg-green-800 hover:bg-green-900 text-white font-medium py-2 px-4 rounded-md transition duration-300"
+              className="bg-[#ff7ff2] hover:bg-[#e66fd8] text-white font-medium py-2 px-4 rounded-md transition duration-300"
             >
               {editMode ? 'Update Record' : 'Add Record'}
             </button>
@@ -282,7 +283,7 @@ const ServiceRecords = () => {
               <button
                 type="button"
                 onClick={resetForm}
-                className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-medium py-2 px-4 rounded-md transition duration-300"
+                className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-md transition duration-300"
               >
                 Cancel
               </button>
@@ -292,15 +293,15 @@ const ServiceRecords = () => {
       </div>
 
       {/* Service Records List */}
-      <div className="bg-white rounded-lg shadow-md p-6 border border-gray-100">
-        <h2 className="text-xl font-semibold text-gray-900 mb-4">Service Records List</h2>
+      <div className="bg-[#fdeca6] rounded-lg shadow-md p-6 border border-[#ff7ff2]">
+        <h2 className="text-xl font-semibold text-gray-800 mb-4">Service Records List</h2>
 
         {error ? (
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
             {error}
           </div>
         ) : records.length === 0 ? (
-          <div className="flex flex-col items-center justify-center py-12 bg-green-50 rounded-lg">
+          <div className="flex flex-col items-center justify-center py-12 bg-[#fdeca6] rounded-lg">
             <p className="text-gray-800 text-lg mb-4">No service records found.</p>
             <p className="text-gray-700 text-sm max-w-md text-center">
               Add your first service record using the form above.
@@ -309,7 +310,7 @@ const ServiceRecords = () => {
         ) : (
           <div className="overflow-x-auto">
             <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-green-50">
+              <thead className="bg-[#fdeca6]">
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-800 uppercase tracking-wider">
                     Record #
@@ -334,13 +335,13 @@ const ServiceRecords = () => {
                   </th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody className="bg-[#fdeca6] divide-y divide-gray-200">
                 {records.map((record, index) => (
-                  <tr key={record.RecordNumber} className={index % 2 === 0 ? 'bg-white' : 'bg-green-50'}>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                  <tr key={record.RecordNumber} className={index % 2 === 0 ? 'bg-[#fdeca6]' : 'bg-[#fff5c3]'}>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
                       {record.RecordNumber}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-green-800">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-[#ff7ff2]">
                       {record.PlateNumber}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
@@ -358,19 +359,19 @@ const ServiceRecords = () => {
                     <td className="px-6 py-4 whitespace-nowrap text-sm space-x-2">
                       <button
                         onClick={() => onEdit(record)}
-                        className="text-green-800 hover:text-green-900 transition duration-300"
+                        className="text-[#ff7ff2] hover:text-[#e66fd8] transition duration-300"
                       >
                         Edit
                       </button>
                       <button
                         onClick={() => onDelete(record.RecordNumber)}
-                        className="text-red-600 hover:text-red-900 transition duration-300"
+                        className="text-[#ff7ff2] hover:text-[#e66fd8] transition duration-300"
                       >
                         Delete
                       </button>
                       <button
                         onClick={() => onGenerateBill(record.RecordNumber)}
-                        className="text-blue-600 hover:text-blue-900 transition duration-300"
+                        className="text-[#ff7ff2] hover:text-[#e66fd8] transition duration-300"
                       >
                         View Bill
                       </button>
@@ -386,13 +387,13 @@ const ServiceRecords = () => {
       {/* Bill Modal */}
       {isBillModalOpen && billData && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 w-full max-w-lg">
+          <div className="bg-[#fdeca6] rounded-lg p-6 w-full max-w-lg">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-semibold text-gray-900">Bill Details</h2>
+              <h2 className="text-xl font-semibold text-gray-800">Bill Details</h2>
               <div className="space-x-2">
                 <button
                   onClick={handlePrint}
-                  className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-1 px-3 rounded-md"
+                  className="bg-[#ff7ff2] hover:bg-[#e66fd8] text-white font-medium py-1 px-3 rounded-md"
                 >
                   Print
                 </button>
@@ -427,22 +428,22 @@ const ServiceRecords = () => {
 
       {/* Hidden Print Content */}
       {billData && (
-        <div className="hidden print:block p-6">
-          <h1 className="text-2xl font-bold mb-4">Bill #{billData.billNumber}</h1>
-          <p><strong>Date:</strong> {billData.date}</p>
-          <h2 className="text-lg font-semibold mt-4">Car Details</h2>
-          <p><strong>Plate Number:</strong> {billData.car.plateNumber}</p>
-          <p><strong>Type:</strong> {billData.car.type}</p>
-          <p><strong>Model:</strong> {billData.car.model}</p>
-          <p><strong>Driver Phone:</strong> {billData.car.driverPhone}</p>
-          <p><strong>Mechanic Name:</strong> {billData.car.mechanicName}</p>
-          <h2 className="text-lg font-semibold mt-4">Service Details</h2>
-          <p><strong>Service Name:</strong> {billData.service.name}</p>
-          <p><strong>Service Price:</strong> {billData.service.price.toLocaleString()} RWF</p>
-          <h2 className="text-lg font-semibold mt-4">Payment Details</h2>
-          <p><strong>Amount Paid:</strong> {billData.payment.amountPaid.toLocaleString()} RWF</p>
-          <p><strong>Received By:</strong> {billData.payment.receivedBy}</p>
-          <p><strong>Balance:</strong> {billData.balance.toLocaleString()} RWF</p>
+        <div className="hidden print:block p-6 bg-[#fdeca6]">
+          <h1 className="text-2xl font-bold text-gray-800 mb-4">Bill #{billData.billNumber}</h1>
+          <p className="text-gray-800"><strong>Date:</strong> {billData.date}</p>
+          <h2 className="text-lg font-semibold text-gray-800 mt-4">Car Details</h2>
+          <p className="text-gray-800"><strong>Plate Number:</strong> {billData.car.plateNumber}</p>
+          <p className="text-gray-800"><strong>Type:</strong> {billData.car.type}</p>
+          <p className="text-gray-800"><strong>Model:</strong> {billData.car.model}</p>
+          <p className="text-gray-800"><strong>Driver Phone:</strong> {billData.car.driverPhone}</p>
+          <p className="text-gray-800"><strong>Mechanic Name:</strong> {billData.car.mechanicName}</p>
+          <h2 className="text-lg font-semibold text-gray-800 mt-4">Service Details</h2>
+          <p className="text-gray-800"><strong>Service Name:</strong> {billData.service.name}</p>
+          <p className="text-gray-800"><strong>Service Price:</strong> {billData.service.price.toLocaleString()} RWF</p>
+          <h2 className="text-lg font-semibold text-gray-800 mt-4">Payment Details</h2>
+          <p className="text-gray-800"><strong>Amount Paid:</strong> {billData.payment.amountPaid.toLocaleString()} RWF</p>
+          <p className="text-gray-800"><strong>Received By:</strong> {billData.payment.receivedBy}</p>
+          <p className="text-gray-800"><strong>Balance:</strong> {billData.balance.toLocaleString()} RWF</p>
         </div>
       )}
     </div>

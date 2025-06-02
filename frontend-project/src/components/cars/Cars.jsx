@@ -11,7 +11,7 @@ const Cars = () => {
     model: '',
     manufacturingYear: '',
     driverPhone: '',
-    mechanicName: ''
+    mechanicName: '',
   });
   const [formError, setFormError] = useState('');
   const [success, setSuccess] = useState('');
@@ -43,7 +43,6 @@ const Cars = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate form
     if (!plateNumber || !type || !model || !manufacturingYear || !driverPhone || !mechanicName) {
       setFormError('Please fill in all fields');
       return;
@@ -52,25 +51,21 @@ const Cars = () => {
     try {
       await axios.post('http://localhost:5000/api/cars', formData);
 
-      // Reset form
       setFormData({
         plateNumber: '',
         type: '',
         model: '',
         manufacturingYear: '',
         driverPhone: '',
-        mechanicName: ''
+        mechanicName: '',
       });
 
-      // Show success message
       setSuccess('Car added successfully');
 
-      // Clear success message after 3 seconds
       setTimeout(() => {
         setSuccess('');
       }, 3000);
 
-      // Refresh cars list
       fetchCars();
     } catch (err) {
       console.error('Error adding car:', err);
@@ -87,12 +82,12 @@ const Cars = () => {
   }
 
   return (
-    <div className="py-8">
-      <h1 className="text-3xl font-bold text-gray-900 mb-8">Cars Management</h1>
+    <div className="py-8 bg-[#fdeca6]">
+      <h1 className="text-3xl font-bold text-gray-800 mb-8">Cars Management</h1>
 
       {/* Add Car Form */}
-      <div className="bg-white rounded-lg shadow-md p-6 mb-8 border border-gray-100">
-        <h2 className="text-xl font-semibold text-gray-900 mb-6">Add New Car</h2>
+      <div className="bg-[#fdeca6] rounded-lg shadow-md p-6 mb-8 border border-[#ff7ff2]">
+        <h2 className="text-xl font-semibold text-gray-800 mb-6">Add New Car</h2>
 
         {formError && (
           <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-md mb-6">
@@ -101,7 +96,7 @@ const Cars = () => {
         )}
 
         {success && (
-          <div className="bg-green-100 border-l-4 border-green-800 text-gray-800 p-4 rounded-md mb-6">
+          <div className="bg-[#fdeca6] border-l-4 border-[#ff7ff2] text-gray-800 p-4 rounded-md mb-6">
             {success}
           </div>
         )}
@@ -118,7 +113,7 @@ const Cars = () => {
                 name="plateNumber"
                 value={plateNumber}
                 onChange={onChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-800 focus:border-green-800"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff7ff2] focus:border-[#ff7ff2]"
                 placeholder="e.g. RAD123A"
               />
             </div>
@@ -133,7 +128,7 @@ const Cars = () => {
                 name="type"
                 value={type}
                 onChange={onChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-800 focus:border-green-800"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff7ff2] focus:border-[#ff7ff2]"
                 placeholder="e.g. Sedan, SUV, Truck"
               />
             </div>
@@ -148,7 +143,7 @@ const Cars = () => {
                 name="model"
                 value={model}
                 onChange={onChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-800 focus:border-green-800"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff7ff2] focus:border-[#ff7ff2]"
                 placeholder="e.g. Toyota Corolla"
               />
             </div>
@@ -163,7 +158,7 @@ const Cars = () => {
                 name="manufacturingYear"
                 value={manufacturingYear}
                 onChange={onChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-800 focus:border-green-800"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff7ff2] focus:border-[#ff7ff2]"
                 placeholder="e.g. 2020"
               />
             </div>
@@ -178,7 +173,7 @@ const Cars = () => {
                 name="driverPhone"
                 value={driverPhone}
                 onChange={onChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-800 focus:border-green-800"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff7ff2] focus:border-[#ff7ff2]"
                 placeholder="e.g. +250 78 123 4567"
               />
             </div>
@@ -193,7 +188,7 @@ const Cars = () => {
                 name="mechanicName"
                 value={mechanicName}
                 onChange={onChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-800 focus:border-green-800"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff7ff2] focus:border-[#ff7ff2]"
                 placeholder="e.g. John Doe"
               />
             </div>
@@ -202,7 +197,7 @@ const Cars = () => {
           <div className="mt-6">
             <button
               type="submit"
-              className="bg-green-800 hover:bg-green-900 text-white font-medium py-2 px-6 rounded-md transition duration-300"
+              className="bg-[#ff7ff2] hover:bg-[#e66fd8] text-white font-medium py-2 px-6 rounded-md transition duration-300"
             >
               Add Car
             </button>
@@ -211,11 +206,11 @@ const Cars = () => {
       </div>
 
       {/* Cars List */}
-      <div className="bg-white rounded-lg shadow-md p-6 border border-gray-100">
+      <div className="bg-[#fdeca6] rounded-lg shadow-md p-6 border border-[#ff7ff2]">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-semibold text-gray-900">Cars List</h2>
+          <h2 className="text-xl font-semibold text-gray-800">Cars List</h2>
           <div className="text-sm text-gray-700">
-            Total: <span className="font-semibold text-green-800">{cars.length}</span> cars
+            Total: <span className="font-semibold text-[#ff7ff2]">{cars.length}</span> cars
           </div>
         </div>
 
@@ -224,7 +219,7 @@ const Cars = () => {
             {error}
           </div>
         ) : cars.length === 0 ? (
-          <div className="flex flex-col items-center justify-center py-12 bg-green-50 rounded-lg">
+          <div className="flex flex-col items-center justify-center py-12 bg-[#fdeca6] rounded-lg">
             <p className="text-gray-800 text-lg mb-4">No cars found in the system</p>
             <p className="text-gray-700 text-sm max-w-md text-center mb-6">
               Add your first car using the form above to get started with car repair management.
@@ -233,7 +228,7 @@ const Cars = () => {
         ) : (
           <div className="overflow-x-auto rounded-lg border border-gray-200">
             <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-green-50">
+              <thead className="bg-[#fdeca6]">
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-800 uppercase tracking-wider">
                     Plate Number
@@ -255,14 +250,14 @@ const Cars = () => {
                   </th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody className="bg-[#fdeca6] divide-y divide-gray-200">
                 {cars.map((car, index) => (
-                  <tr key={car.PlateNumber} className={index % 2 === 0 ? 'bg-white' : 'bg-green-50'}>
+                  <tr key={car.PlateNumber} className={index % 2 === 0 ? 'bg-[#fdeca6]' : 'bg-[#fff5c3]'}>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm font-medium text-green-800">{car.PlateNumber}</div>
+                      <div className="text-sm font-medium text-[#ff7ff2]">{car.PlateNumber}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-gray-800">
+                      <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-[#fdeca6] text-gray-800 border border-[#ff7ff2]">
                         {car.type}
                       </span>
                     </td>

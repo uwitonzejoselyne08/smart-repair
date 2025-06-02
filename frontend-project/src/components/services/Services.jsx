@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -74,19 +75,19 @@ const Services = () => {
   
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-64">
-        <div className="text-lg text-gray-800">Loading...</div>
+      <div className="flex justify-center items-center h-64 bg-[#fdeca6]">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#ff7ff2]"></div>
       </div>
     );
   }
   
   return (
-    <div className="py-6">
-      <h1 className="text-2xl font-bold text-gray-900 mb-6">Services Management</h1>
+    <div className="py-6 bg-[#fdeca6]">
+      <h1 className="text-2xl font-bold text-gray-800 mb-6">Services Management</h1>
       
       {/* Add Service Form */}
-      <div className="bg-white rounded-lg shadow-md p-6 mb-8 border border-gray-100">
-        <h2 className="text-xl font-semibold text-gray-900 mb-4">Add New Service</h2>
+      <div className="bg-[#fdeca6] rounded-lg shadow-md p-6 mb-8 border border-[#ff7ff2]">
+        <h2 className="text-xl font-semibold text-gray-800 mb-4">Add New Service</h2>
         
         {formError && (
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
@@ -95,7 +96,7 @@ const Services = () => {
         )}
         
         {success && (
-          <div className="bg-green-100 border border-green-800 text-gray-800 px-4 py-3 rounded mb-4">
+          <div className="bg-[#fdeca6] border border-[#ff7ff2] text-gray-800 px-4 py-3 rounded mb-4">
             {success}
           </div>
         )}
@@ -112,7 +113,7 @@ const Services = () => {
                 name="serviceCode"
                 value={serviceCode}
                 onChange={onChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-800 focus:border-green-800"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff7ff2] focus:border-[#ff7ff2]"
                 placeholder="e.g. ENG001"
               />
             </div>
@@ -127,7 +128,7 @@ const Services = () => {
                 name="serviceName"
                 value={serviceName}
                 onChange={onChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-800 focus:border-green-800"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff7ff2] focus:border-[#ff7ff2]"
                 placeholder="e.g. Engine repair"
               />
             </div>
@@ -142,7 +143,7 @@ const Services = () => {
                 name="servicePrice"
                 value={servicePrice}
                 onChange={onChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-800 focus:border-green-800"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff7ff2] focus:border-[#ff7ff2]"
                 placeholder="e.g. 150000"
               />
             </div>
@@ -151,7 +152,7 @@ const Services = () => {
           <div className="mt-2">
             <button
               type="submit"
-              className="bg-green-800 hover:bg-green-900 text-white font-medium py-2 px-4 rounded-md transition duration-300"
+              className="bg-[#ff7ff2] hover:bg-[#e66fd8] text-white font-medium py-2 px-4 rounded-md transition duration-300"
             >
               Add Service
             </button>
@@ -160,15 +161,15 @@ const Services = () => {
       </div>
       
       {/* Services List */}
-      <div className="bg-white rounded-lg shadow-md p-6 border border-gray-100">
-        <h2 className="text-xl font-semibold text-gray-900 mb-4">Services List</h2>
+      <div className="bg-[#fdeca6] rounded-lg shadow-md p-6 border border-[#ff7ff2]">
+        <h2 className="text-xl font-semibold text-gray-800 mb-4">Services List</h2>
         
         {error ? (
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
             {error}
           </div>
         ) : services.length === 0 ? (
-          <div className="flex flex-col items-center justify-center py-12 bg-green-50 rounded-lg">
+          <div className="flex flex-col items-center justify-center py-12 bg-[#fdeca6] rounded-lg">
             <p className="text-gray-800 text-lg mb-4">No services found.</p>
             <p className="text-gray-700 text-sm max-w-md text-center">
               Add your first service using the form above to get started.
@@ -177,7 +178,7 @@ const Services = () => {
         ) : (
           <div className="overflow-x-auto">
             <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-green-50">
+              <thead className="bg-[#fdeca6]">
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-800 uppercase tracking-wider">
                     Service Code
@@ -190,10 +191,10 @@ const Services = () => {
                   </th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody className="bg-[#fdeca6] divide-y divide-gray-200">
                 {services.map((service, index) => (
-                  <tr key={service.ServiceCode} className={index % 2 === 0 ? 'bg-white' : 'bg-green-50'}>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-green-800">
+                  <tr key={service.ServiceCode} className={index % 2 === 0 ? 'bg-[#fdeca6]' : 'bg-[#fff5c3]'}>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-[#ff7ff2]">
                       {service.ServiceCode}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">

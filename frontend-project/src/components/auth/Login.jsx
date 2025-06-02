@@ -5,7 +5,7 @@ import AuthContext from '../../context/AuthContext';
 const Login = () => {
   const [formData, setFormData] = useState({
     username: '',
-    password: ''
+    password: '',
   });
   const [formError, setFormError] = useState('');
 
@@ -15,12 +15,10 @@ const Login = () => {
   const { username, password } = formData;
 
   useEffect(() => {
-    // If already authenticated, redirect to dashboard
     if (isAuthenticated) {
       navigate('/dashboard');
     }
 
-    // Set form error if there's an auth error
     if (error) {
       setFormError(error);
       clearError();
@@ -48,13 +46,13 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-white px-4 py-12 sm:px-6 lg:px-8">
+    <div className="flex justify-center items-center min-h-screen bg-[#fdeca6] px-4 py-12 sm:px-6 lg:px-8">
       <div className="w-full max-w-md space-y-8">
-        {/* Card with responsive design */}
-        <div className="bg-white p-6 sm:p-8 rounded-xl shadow-xl border-t-4 border-green-800">
-          {/* Title with responsive text size */}
+        {/* Card */}
+        <div className="bg-[#fdeca6] p-6 sm:p-8 rounded-xl shadow-xl border-t-4 border-[#ff7ff2]">
+          {/* Title */}
           <h1 className="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-6">
-            Admin Login to <span className="text-green-800">SmartPark</span>
+            Admin Login to <span className="text-[#ff7ff2]">SmartPark</span>
           </h1>
 
           {/* Error message */}
@@ -80,7 +78,7 @@ const Login = () => {
                 name="username"
                 value={username}
                 onChange={onChange}
-                className="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-800 focus:border-green-800 text-gray-900"
+                className="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff7ff2] focus:border-[#ff7ff2] text-gray-900"
                 placeholder="Enter your username"
                 autoComplete="username"
               />
@@ -100,7 +98,7 @@ const Login = () => {
                 name="password"
                 value={password}
                 onChange={onChange}
-                className="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-800 focus:border-green-800 text-gray-900"
+                className="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff7ff2] focus:border-[#ff7ff2] text-gray-900"
                 placeholder="Enter your password"
                 autoComplete="current-password"
               />
@@ -110,7 +108,7 @@ const Login = () => {
             <div>
               <button
                 type="submit"
-                className="w-full flex justify-center py-3 px-4 border border-transparent text-sm sm:text-base font-medium rounded-lg text-white bg-green-800 hover:bg-green-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-800"
+                className="w-full flex justify-center py-3 px-4 border border-transparent text-sm sm:text-base font-medium rounded-lg text-white bg-[#ff7ff2] hover:bg-[#e66fd8] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#ff7ff2]"
               >
                 Login
               </button>
@@ -121,13 +119,12 @@ const Login = () => {
           <div className="mt-8 text-center">
             <p className="text-sm sm:text-base text-gray-600">
               Don't have an account?
-              <Link to="/register" className="ml-1 font-medium text-green-800 hover:text-green-700 hover:underline">
+              <Link to="/register" className="ml-1 font-medium text-[#ff7ff2] hover:text-[#e66fd8] hover:underline">
                 Register here
               </Link>
             </p>
           </div>
         </div>
-
       </div>
     </div>
   );
